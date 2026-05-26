@@ -1,0 +1,56 @@
+# macOS system files
+.DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Environment files/cache
+.conda/
+.env
+.venv/
+venv/
+
+# Logs
+*.log
+results/logs/*
+
+# Large raw and processed data
+data/raw/*
+data/processed/*
+data/external/*
+
+# Keep folder structure
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
+
+# Model outputs
+results/models/*
+!results/models/.gitkeep
+
+# Figure and table outputs can be regenerated
+results/figures/*
+results/tables/*
+!results/figures/.gitkeep
+!results/tables/.gitkeep
+
+# Temporary files
+tmp/
+temp/
+
+# PyTorch checkpoints
+*.pt
+*.pth
+*.ckpt
+
+# Archive/compressed files
+*.zip
+*.tar
+*.tar.gz
+*.gz

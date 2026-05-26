@@ -1,0 +1,48 @@
+project:
+  name: tcga_transcriptomics_dl
+  cohort: TCGA-BRCA
+  beginner_goal: molecular_subtype_classification
+
+data:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  external_dir: data/external
+
+files:
+  expression_raw: data/raw/tcga_brca_expression.tsv
+  metadata_raw: data/raw/tcga_brca_metadata.tsv
+  expression_processed: data/processed/expression_processed.csv
+  metadata_processed: data/processed/metadata_processed.csv
+
+preprocessing:
+  sample_type: primary_tumor
+  log_transform: true
+  log_base: 2
+  add_pseudocount: 1
+  top_variable_genes: 5000
+  scale_features: true
+
+split:
+  test_size: 0.20
+  validation_size: 0.20
+  stratify: true
+  random_seed: 42
+
+model:
+  target_column: molecular_subtype
+  baseline_models:
+    - logistic_regression
+    - random_forest
+  neural_network:
+    architecture: mlp
+    epochs: 100
+    batch_size: 32
+    learning_rate: 0.001
+    early_stopping: true
+    patience: 10
+
+outputs:
+  figures_dir: results/figures
+  tables_dir: results/tables
+  models_dir: results/models
+  logs_dir: results/logs

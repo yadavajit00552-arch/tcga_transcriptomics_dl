@@ -1,0 +1,51 @@
+name: tcga_dl
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip
+
+  # Core scientific computing
+  - numpy
+  - pandas
+  - scipy
+
+  # Machine learning
+  - scikit-learn
+  - imbalanced-learn
+
+  # Visualization
+  - matplotlib
+  - seaborn
+  - plotly
+
+  # Bioinformatics / data formats
+  - mygene
+  - gseapy
+
+  # Dimensionality reduction
+  - umap-learn
+
+  # Survival analysis
+  - lifelines
+
+  # Jupyter
+  - jupyterlab
+  - ipykernel
+
+  # Utilities
+  - pyyaml
+  - tqdm
+  - requests
+
+  # Deep learning and explainability via pip
+  - pip:
+      - torch
+      - torchvision
+      - torchaudio
+      - shap
+      - captum
+      - openpyxl

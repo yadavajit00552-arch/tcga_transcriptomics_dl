@@ -21,6 +21,7 @@ RESULTS_TABLE_DIR = Path("results/tables")
 MODEL_FILES = {
     "Logistic Regression": RESULTS_TABLE_DIR / "logistic_regression_test_metrics.csv",
     "Random Forest": RESULTS_TABLE_DIR / "random_forest_test_metrics.csv",
+    "MLP Neural Network": RESULTS_TABLE_DIR / "mlp_test_metrics.csv",
 }
 
 OUTPUT_PATH = RESULTS_TABLE_DIR / "model_comparison_summary.csv"

@@ -142,7 +142,41 @@ Important results:
 | LumB | E2F Targets / Cell Cycle | High-proliferation LumB biology captured |
 | Basal | Elastic fibre / EMT-related signal | Weaker basal-associated signal |
 
-## 12. Main scientific conclusion
+## 12. SHAP explainability findings
+
+I also added SHAP explainability for the best model, Logistic Regression.
+
+SHAP helped identify which genes contributed most strongly to predictions across the test set.
+
+Top SHAP genes included:
+
+- FADS1
+- GRB7
+- GTSE1
+- CENPA
+- ASPM
+- FOXM1
+- ESR1
+- DEPDC1
+- NUF2
+- ERBB2
+- BIRC5
+
+The important point is that SHAP again recovered biologically meaningful genes:
+
+| Signal | SHAP genes |
+|---|---|
+| HER2 biology | GRB7, ERBB2, C17orf37 |
+| Luminal/ER biology | ESR1 |
+| Cell cycle/proliferation | FOXM1, BIRC5, NUF2, RRM2, CENPA, ASPM |
+| Lipid/metabolic signal | FADS1, FADS2 |
+
+So now the interpretation has two layers:
+
+1. Logistic Regression coefficients show which genes push toward each subtype.
+2. SHAP shows which genes contribute most strongly to predictions globally.
+
+## 13. Main scientific conclusion
 
 RNA-seq expression profiles can classify TCGA-BRCA molecular subtypes with high accuracy.
 
@@ -150,11 +184,11 @@ The best model was Logistic Regression, suggesting that breast cancer subtype id
 
 The model-derived genes and pathways recovered known breast cancer biology.
 
-## 13. How I would explain this in 30 seconds
+## 14. How I would explain this in 30 seconds
 
 I built a reproducible TCGA-BRCA RNA-seq machine learning pipeline to classify breast cancer molecular subtypes. I used PAM50 subtype labels, filtered primary tumors, created train-validation-test splits, selected the top 5,000 variable genes, and trained Logistic Regression, Random Forest, and an MLP neural network. Logistic Regression performed best with around 89% test accuracy and 0.88 macro F1, suggesting that subtype signal is strongly linearly separable. I then interpreted the model and found biologically meaningful genes such as ERBB2 and GRB7 for Her2, FOXC1 for Basal, and cell-cycle genes like BIRC5 and NUF2 for LumB. Pathway enrichment confirmed ERBB2 signaling, estrogen response, and E2F/cell-cycle pathways.
 
-## 14. How I would explain this in 2 minutes
+## 15. How I would explain this in 2 minutes
 
 This project focused on classifying TCGA-BRCA breast cancer molecular subtypes using RNA-seq gene expression data. I started with the TCGA-BRCA expression matrix and filtered primary tumor samples. Then I fetched PAM50-related subtype metadata from UCSC Xena and merged it with expression data.
 
@@ -166,7 +200,7 @@ For interpretation, I extracted Logistic Regression coefficients. The Her2 subty
 
 Overall, the project shows not only predictive performance but also biological interpretability.
 
-## 15. Important limitations
+## 16. Important limitations
 
 1. The project used only TCGA-BRCA.
 2. External validation is still needed.
@@ -175,7 +209,7 @@ Overall, the project shows not only predictive performance but also biological i
 5. Survival analysis was not yet performed.
 6. Some subtype labels depend on metadata completeness.
 
-## 16. Future work
+## 17. Future work
 
 Next steps:
 
@@ -187,7 +221,7 @@ Next steps:
 6. Testing SVM, Elastic Net, or XGBoost.
 7. Expanding to pan-cancer subtype classification.
 
-## 17. Most important thing to remember
+## 18. Most important thing to remember
 
 This project is strong because it is not only predictive.
 

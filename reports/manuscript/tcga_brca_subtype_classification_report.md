@@ -200,7 +200,36 @@ Top subtype-associated genes from Logistic Regression included:
 
 The presence of ERBB2 and GRB7 among the top Her2-associated genes strongly supports that the model learned biologically meaningful subtype features.
 
-### 4.5 Pathway enrichment results
+### 4.5 SHAP explainability results
+
+SHAP analysis was performed for the best-performing Logistic Regression model to identify genes with high global contribution to subtype predictions.
+
+Top global SHAP genes included:
+
+- FADS1
+- GRB7
+- GTSE1
+- CENPA
+- ASPM
+- FOXM1
+- ESR1
+- DEPDC1
+- NUF2
+- ERBB2
+- BIRC5
+
+These genes support multiple known breast cancer biological programs:
+
+| Biological signal | SHAP-supported genes |
+|---|---|
+| HER2 signaling | GRB7, ERBB2, C17orf37 |
+| Luminal/estrogen receptor biology | ESR1 |
+| Proliferation and cell cycle | FOXM1, BIRC5, NUF2, RRM2, CENPA, ASPM |
+| Lipid/metabolic subtype signal | FADS1, FADS2 |
+
+SHAP therefore provided an additional model-explainability layer beyond Logistic Regression coefficients. Coefficients showed the direction of subtype association, while SHAP highlighted genes contributing strongly to predictions across the test set.
+
+### 4.6 Pathway enrichment results
 
 Important pathway enrichment findings included:
 

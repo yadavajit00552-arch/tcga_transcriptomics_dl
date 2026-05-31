@@ -63,43 +63,47 @@ echo "Step 14: Extract Logistic Regression important genes"
 python src/evaluation/extract_logistic_regression_genes.py
 
 echo ""
-echo "Step 15: Create subtype gene lists"
+echo "Step 15: Run SHAP analysis for Logistic Regression"
+python src/evaluation/run_shap_logistic_regression.py
+
+echo ""
+echo "Step 16: Create subtype gene lists"
 python src/evaluation/create_subtype_gene_lists.py
 
 echo ""
-echo "Step 16: Run pathway enrichment"
+echo "Step 17: Run pathway enrichment"
 python src/evaluation/run_pathway_enrichment.py
 
 echo ""
-echo "Step 17: Create result summary"
+echo "Step 18: Create result summary"
 python src/evaluation/create_results_summary.py
 
 echo ""
-echo "Step 18: Generate subtype distribution plot"
+echo "Step 19: Generate subtype distribution plot"
 python src/visualization/plot_subtype_distribution.py
 
 echo ""
-echo "Step 19: Generate PCA plot"
+echo "Step 20: Generate PCA plot"
 python src/visualization/plot_pca_subtypes.py
 
 echo ""
-echo "Step 20: Generate UMAP plot"
+echo "Step 21: Generate UMAP plot"
 python src/visualization/plot_umap_subtypes.py
 
 echo ""
-echo "Step 21: Generate model comparison plots"
+echo "Step 22: Generate model comparison plots"
 python src/visualization/plot_model_comparison.py
 
 echo ""
-echo "Step 22: Generate confusion matrix plots"
+echo "Step 23: Generate confusion matrix plots"
 python src/visualization/plot_confusion_matrices.py
 
 echo ""
-echo "Step 23: Generate Logistic Regression gene plot"
+echo "Step 24: Generate Logistic Regression gene plot"
 python src/visualization/plot_logistic_regression_genes.py
 
 echo ""
-echo "Step 24: Generate pathway enrichment plot"
+echo "Step 25: Generate pathway enrichment plot"
 python src/visualization/plot_pathway_enrichment.py
 
 echo ""

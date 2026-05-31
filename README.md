@@ -179,6 +179,7 @@ Note: pathway enrichment depends on internet access because it queries Enrichr t
 ### Evaluation and visualization
 
     python src/evaluation/compare_baseline_models.py
+    python src/evaluation/run_shap_logistic_regression.py
     python src/evaluation/create_results_summary.py
 
     python src/visualization/plot_subtype_distribution.py
@@ -222,7 +223,7 @@ The repository tracks scripts, configuration files, environment files, and docum
 - [x] PCA and UMAP visualizations created
 - [x] Confusion matrix plots created
 - [x] Results summary generated
-- [ ] SHAP / feature attribution
+- [x] SHAP / feature attribution for Logistic Regression
 - [ ] Pathway enrichment
 - [ ] Survival analysis
 - [ ] Scientific report draft

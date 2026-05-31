@@ -266,3 +266,18 @@ The full pipeline can be rerun with:
     bash run_all.sh
 
 All main scripts are stored under `src/`, while generated results are saved under `results/`.
+
+
+## 10. References
+
+1. The Cancer Genome Atlas Network. Comprehensive molecular portraits of human breast tumours. Nature, 2012.
+
+2. Parker JS et al. Supervised Risk Predictor of Breast Cancer Based on Intrinsic Subtypes. Journal of Clinical Oncology, 2009.
+
+3. Weinstein JN et al. The Cancer Genome Atlas Pan-Cancer analysis project. Nature Genetics, 2013.
+
+4. Chen EY et al. Enrichr: interactive and collaborative HTML5 gene list enrichment analysis tool. BMC Bioinformatics, 2013.
+
+5. Kuleshov MV et al. Enrichr: a comprehensive gene set enrichment analysis web server 2016 update. Nucleic Acids Research, 2016.
+
+6. UCSC Xena Browser / Xena Hubs were used to access TCGA-BRCA expression and clinical metadata.

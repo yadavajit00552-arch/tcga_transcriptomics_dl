@@ -73,6 +73,36 @@ Most errors occurred between LumA and LumB, which is biologically reasonable bec
 
 The MLP neural network performed well but did not outperform Logistic Regression, showing that deeper nonlinear modeling is not automatically superior without further optimization or biological feature engineering.
 
+## Gene importance interpretation
+
+Because Logistic Regression was the best-performing model, its coefficients were used to identify subtype-associated genes.
+
+Key subtype-associated genes:
+
+| Subtype | Important positive genes | Biological interpretation |
+|---|---|---|
+| Basal | FOXC1, GDF5, FZD9, ZIC1 | Basal-like transcriptional signal |
+| Her2 | ERBB2, GRB7, PGAP3, GSDMB | HER2/ERBB2-amplified biology |
+| LumA | ERBB4, ADCY1, SLC40A1, GPR143 | Luminal and hormone-response-associated signal |
+| LumB | BIRC5, NUF2, GTSE1, ASPM, DEPDC1 | Proliferation and cell-cycle-associated signal |
+
+The presence of ERBB2 and GRB7 among the top Her2-associated genes strongly supports that the model learned biologically meaningful subtype features.
+
+## Pathway enrichment interpretation
+
+Subtype-specific top genes were analyzed using pathway enrichment.
+
+Key enrichment findings:
+
+| Subtype | Enriched pathway | Interpretation |
+|---|---|---|
+| Her2 | GRB7 Events in ERBB2 Signaling | HER2 receptor signaling captured |
+| LumA | Estrogen Response Early | Estrogen/luminal biology captured |
+| LumB | E2F Targets and Cell Cycle | High-proliferation LumB biology captured |
+| Basal | Elastic fibre-associated Reactome term | Modest signal; needs expanded basal gene interpretation |
+
+Overall, the model-derived genes recover known breast cancer subtype biology, supporting both predictive performance and biological interpretability.
+
 ## Project workflow
 
 Raw TCGA-BRCA expression data

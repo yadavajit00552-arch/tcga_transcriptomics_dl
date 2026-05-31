@@ -25,11 +25,7 @@ XENA_FILES = {
         "output_gz": "data/raw/TCGA-BRCA.HiSeqV2.tsv.gz",
         "output_tsv": "data/raw/TCGA-BRCA.HiSeqV2.tsv",
     },
-    "phenotype_gz": {
-        "url": "https://tcga.xenahubs.net/download/TCGA.BRCA.sampleMap/BRCA_clinicalMatrix.gz",
-        "output_gz": "data/raw/TCGA-BRCA.clinicalMatrix.tsv.gz",
-        "output_tsv": "data/raw/TCGA-BRCA.clinicalMatrix.tsv",
-    },
+
 }
 
 

@@ -144,6 +144,16 @@ Verify Python:
     python --version
     which python
 
+## Run full pipeline
+
+After activating the environment, the full workflow can be reproduced with:
+
+    bash run_all.sh
+
+This script runs data preparation, preprocessing, model training, evaluation, gene interpretation, pathway enrichment, and visualization in the correct order.
+
+Note: pathway enrichment depends on internet access because it queries Enrichr through GSEApy.
+
 ## Core scripts
 
 ### Data download and inspection

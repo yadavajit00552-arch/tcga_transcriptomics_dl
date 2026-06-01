@@ -344,3 +344,22 @@ Main resources include TCGA-BRCA, UCSC Xena, METABRIC, cBioPortal, scikit-learn,
 A project-specific reference list is available in:
 
     reports/references.md
+
+
+## How to cite / acknowledge
+
+This repository uses public cancer genomics resources and open-source computational tools.
+
+If using or extending this project, please acknowledge:
+
+- TCGA-BRCA / The Cancer Genome Atlas
+- UCSC Xena
+- METABRIC
+- cBioPortal
+- scikit-learn
+- SHAP
+- Enrichr / MSigDB pathway resources
+
+A full project reference list is provided in:
+
+    reports/references.md

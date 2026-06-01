@@ -287,6 +287,54 @@ The repository tracks scripts, configuration files, environment files, and docum
 - [ ] Scientific report draft
 
 
+## Results file index
+
+Main generated figures and result tables are saved under `results/`. Large generated files are ignored by Git, but they can be recreated by running the pipeline.
+
+### Main figures
+
+| Figure | Purpose |
+|---|---|
+| `results/figures/pca_subtype_plot.png` | PCA visualization of subtype separation |
+| `results/figures/umap_subtype_plot.png` | UMAP visualization of subtype structure |
+| `results/figures/subtype_distribution.png` | Class distribution |
+| `results/figures/confusion_matrix_logistic_regression.png` | Logistic Regression confusion matrix |
+| `results/figures/confusion_matrix_random_forest.png` | Random Forest confusion matrix |
+| `results/figures/confusion_matrix_mlp.png` | MLP confusion matrix |
+| `results/figures/model_comparison_all_metrics.png` | Comparison of model metrics |
+| `results/figures/model_comparison_macro_f1.png` | Macro F1 comparison |
+| `results/figures/logistic_regression_top_genes_by_subtype.png` | Top subtype-associated genes |
+| `results/figures/shap_logistic_regression_top_genes.png` | Global SHAP gene importance |
+| `results/figures/pathway_enrichment_top_terms.png` | Top pathway enrichment terms |
+
+### Main result tables
+
+| Table | Purpose |
+|---|---|
+| `results/tables/model_comparison_summary.csv` | Main model comparison metrics |
+| `results/tables/project_results_summary.txt` | Text summary of project results |
+| `results/tables/subtype_distribution.csv` | Subtype sample counts |
+| `results/tables/logistic_regression_coefficients_all.csv` | Full Logistic Regression gene coefficients |
+| `results/tables/logistic_regression_top_genes_by_subtype.csv` | Top subtype-associated genes |
+| `results/tables/shap_logistic_regression_top_genes.csv` | Global SHAP top genes |
+| `results/tables/shap_logistic_regression_top_genes_by_subtype.csv` | Subtype-specific SHAP genes |
+| `results/tables/pathway_enrichment/pathway_enrichment_summary.csv` | Pathway enrichment results |
+| `results/tables/external_validation/metabric_external_validation_metrics.csv` | Raw METABRIC validation metrics |
+| `results/tables/external_validation/metabric_zscore_external_validation_metrics.csv` | METABRIC z-score validation metrics |
+
+### Main reports
+
+| Report | Purpose |
+|---|---|
+| `reports/final_project_summary.md` | Full final project summary |
+| `reports/repository_guide.md` | Navigation guide for repository |
+| `reports/data_sources.md` | Dataset sources and files used |
+| `reports/references.md` | References and attribution |
+| `reports/metabric_external_validation_results.md` | External validation results |
+| `reports/project_interview_summary.md` | Interview preparation summary |
+| `reports/manuscript/tcga_brca_subtype_classification_report.md` | Scientific report draft |
+
+
 ## References and attribution
 
 This project uses public cancer genomics resources and open-source computational tools.

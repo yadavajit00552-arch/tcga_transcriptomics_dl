@@ -89,6 +89,22 @@ Key subtype-associated genes:
 The presence of ERBB2 and GRB7 among the top Her2-associated genes strongly supports that the model learned biologically meaningful subtype features.
 
 
+## Data sources
+
+This project uses two public breast cancer transcriptomics datasets:
+
+| Dataset | Platform | Role |
+|---|---|---|
+| TCGA-BRCA | RNA-seq | Training, validation, and testing |
+| METABRIC | Illumina microarray | Independent external validation |
+
+TCGA-BRCA expression and PAM50-related metadata were accessed through UCSC Xena. METABRIC expression and clinical files were downloaded from cBioPortal.
+
+Detailed data-source information is available in:
+
+    reports/data_sources.md
+
+
 ## External validation on METABRIC
 
 To test whether the TCGA-BRCA subtype classifier generalizes beyond TCGA, the model was externally validated on the independent METABRIC breast cancer cohort.

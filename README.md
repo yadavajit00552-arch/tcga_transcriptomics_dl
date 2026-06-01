@@ -88,6 +88,48 @@ Key subtype-associated genes:
 
 The presence of ERBB2 and GRB7 among the top Her2-associated genes strongly supports that the model learned biologically meaningful subtype features.
 
+
+## External validation on METABRIC
+
+To test whether the TCGA-BRCA subtype classifier generalizes beyond TCGA, the model was externally validated on the independent METABRIC breast cancer cohort.
+
+Because TCGA expression data are RNA-seq-based and METABRIC expression data are Illumina microarray-based, external validation was performed carefully using genes shared between both datasets.
+
+### Gene overlap
+
+| Item | Value |
+|---|---:|
+| TCGA selected ML genes | 5,000 |
+| Shared TCGA-METABRIC genes | 4,311 |
+| Missing TCGA genes in METABRIC | 689 |
+| Gene overlap | 86.22% |
+
+### External validation dataset
+
+| Subtype | METABRIC samples |
+|---|---:|
+| LumA | 700 |
+| LumB | 475 |
+| Her2 | 224 |
+| Basal | 209 |
+| Total | 1,608 |
+
+### External validation performance
+
+Using raw METABRIC microarray expression caused poor cross-platform transfer, with predictions collapsing mostly to LumA. After using METABRIC z-score expression, external validation improved substantially.
+
+| Dataset | Accuracy | Balanced Accuracy | Macro F1 | Weighted F1 |
+|---|---:|---:|---:|---:|
+| TCGA test using shared genes | 0.8970 | 0.9060 | 0.8934 | 0.8970 |
+| METABRIC z-score external validation | 0.8178 | 0.7840 | 0.8057 | 0.8161 |
+
+### Interpretation
+
+The successful METABRIC z-score validation suggests that the TCGA-trained classifier captures transferable breast cancer subtype biology. The main errors occurred between LumA and LumB, which is biologically reasonable because both are luminal subtypes with overlapping hormone-response expression programs.
+
+This result also shows that platform-aware normalization is essential when transferring models between RNA-seq and microarray datasets.
+
+
 ## Pathway enrichment interpretation
 
 Subtype-specific top genes were analyzed using pathway enrichment.

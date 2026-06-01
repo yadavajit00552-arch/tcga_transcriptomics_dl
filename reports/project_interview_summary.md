@@ -230,3 +230,30 @@ It also connects:
 Data → model → genes → pathways → biology
 
 That makes it a computational biology project, not just a machine learning exercise.
+
+
+
+## METABRIC External Validation
+
+I also externally validated the TCGA-trained model on the independent METABRIC breast cancer cohort.
+
+This was important because TCGA uses RNA-seq expression data, while METABRIC uses Illumina microarray expression data. So this tested whether the subtype signal learned from TCGA could transfer across cohorts and platforms.
+
+The TCGA model used 5,000 selected genes, and 4,311 of these genes overlapped with METABRIC. After filtering METABRIC to the same four classes, the external validation dataset contained 1,608 samples.
+
+Raw METABRIC microarray expression initially failed because the model predicted almost all samples as LumA. This showed a platform-shift problem.
+
+After switching to METABRIC z-score expression, performance improved strongly:
+
+- METABRIC external accuracy: 0.8178
+- METABRIC balanced accuracy: 0.7840
+- METABRIC macro F1: 0.8057
+- METABRIC weighted F1: 0.8161
+
+Interview explanation:
+
+The key lesson was that external validation is not only about applying a model to another dataset. The expression scale and platform matter. TCGA RNA-seq and METABRIC microarray data are not directly comparable in raw form. Once I used METABRIC z-score expression, the model recovered transferable subtype biology.
+
+Best short answer:
+
+I trained a TCGA-BRCA RNA-seq subtype classifier and externally validated it on METABRIC. Raw microarray expression failed due to platform shift, but using METABRIC z-score expression improved external validation to 0.818 accuracy and 0.806 macro F1. This showed that breast cancer subtype signals are transferable across cohorts when normalization is handled carefully.

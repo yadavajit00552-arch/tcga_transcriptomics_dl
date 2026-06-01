@@ -265,6 +265,38 @@ Important limitations include:
 6. Clinical outcome prediction and survival analysis were not yet included.
 7. Some subtype labels may depend on metadata availability and annotation quality.
 
+
+## External Validation on METABRIC
+
+To evaluate whether the TCGA-BRCA subtype classifier generalizes beyond the original cohort, external validation was performed using the independent METABRIC breast cancer cohort.
+
+A major challenge was that TCGA-BRCA expression data are RNA-seq based, whereas METABRIC expression data are Illumina microarray based. Therefore, validation was performed using genes shared between both datasets.
+
+The original TCGA model used 5,000 selected genes. Of these, 4,311 genes were also available in METABRIC, giving an overlap of 86.22%.
+
+The METABRIC validation dataset contained 1,608 samples across the same four classes used in the TCGA model:
+
+| Subtype | Samples |
+|---|---:|
+| LumA | 700 |
+| LumB | 475 |
+| Her2 | 224 |
+| Basal | 209 |
+
+Initial validation using raw METABRIC microarray expression failed because predictions collapsed mostly to LumA. This indicated strong platform shift between TCGA RNA-seq and METABRIC microarray expression.
+
+After using METABRIC z-score expression, external validation improved substantially:
+
+| Dataset | Accuracy | Balanced Accuracy | Macro F1 | Weighted F1 |
+|---|---:|---:|---:|---:|
+| TCGA test using shared genes | 0.8970 | 0.9060 | 0.8934 | 0.8970 |
+| METABRIC z-score external validation | 0.8178 | 0.7840 | 0.8057 | 0.8161 |
+
+The strongest external validation performance was observed for LumA and Basal samples. The main error pattern was LumB being misclassified as LumA, which is biologically reasonable because LumA and LumB are both luminal subtypes and share hormone-response transcriptional programs.
+
+These results show that breast cancer molecular subtype signals are transferable across independent cohorts when platform-aware normalization is used.
+
+
 ## 7. Future Work
 
 Future improvements include:

@@ -285,3 +285,14 @@ The repository tracks scripts, configuration files, environment files, and docum
 - [ ] Pathway enrichment
 - [ ] Survival analysis
 - [ ] Scientific report draft
+
+
+## References and attribution
+
+This project uses public cancer genomics resources and open-source computational tools.
+
+Main resources include TCGA-BRCA, UCSC Xena, METABRIC, cBioPortal, scikit-learn, SHAP, and pathway enrichment resources.
+
+A project-specific reference list is available in:
+
+    reports/references.md

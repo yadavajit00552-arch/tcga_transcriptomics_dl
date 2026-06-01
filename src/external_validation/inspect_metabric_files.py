@@ -76,7 +76,7 @@ def main():
         raise FileNotFoundError(f"Missing directory: {METABRIC_DIR}")
 
     files = [
-        path for path in METABRIC_DIR.iterdir()
+        path for path in METABRIC_DIR.rglob("*")
         if path.is_file() and path.suffix.lower() in SUPPORTED_EXTENSIONS
     ]
 

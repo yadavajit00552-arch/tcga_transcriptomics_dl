@@ -20,6 +20,7 @@ import pandas as pd
 import numpy as np
 
 from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score,
@@ -115,14 +116,29 @@ def main():
     for i, cls in enumerate(class_names):
         print(f"{cls}: {i}")
 
+    print("\nChecking missing values before imputation...")
+    print("TCGA train missing values:", int(X_train_overlap.isna().sum().sum()))
+    print("TCGA test missing values:", int(X_test_overlap.isna().sum().sum()))
+    print("METABRIC missing values:", int(X_metabric.isna().sum().sum()))
+
+    print("\nImputing missing values...")
+    imputer = SimpleImputer(strategy="median")
+
+    # Fit imputer only on TCGA train data to avoid external-validation leakage.
+    X_train_imputed = imputer.fit_transform(X_train_overlap)
+    X_test_imputed = imputer.transform(X_test_overlap)
+    X_metabric_imputed = imputer.transform(X_metabric)
+
     print("\nScaling data...")
     scaler = StandardScaler()
-    X_train_scaled = scaler.fit_transform(X_train_overlap)
-    X_test_scaled = scaler.transform(X_test_overlap)
 
-    # For METABRIC, we apply TCGA-trained scaler only.
+    # Fit scaler only on TCGA train data to avoid external-validation leakage.
+    X_train_scaled = scaler.fit_transform(X_train_imputed)
+    X_test_scaled = scaler.transform(X_test_imputed)
+
+    # For METABRIC, apply TCGA-trained imputer and scaler only.
     # This is strict external validation, but cross-platform shift may reduce performance.
-    X_metabric_scaled = scaler.transform(X_metabric)
+    X_metabric_scaled = scaler.transform(X_metabric_imputed)
 
     print("\nTraining Logistic Regression on TCGA overlap genes...")
     model = LogisticRegression(

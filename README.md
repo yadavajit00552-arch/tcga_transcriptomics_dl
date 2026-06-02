@@ -287,6 +287,37 @@ The repository tracks scripts, configuration files, environment files, and docum
 - [ ] Scientific report draft
 
 
+## METABRIC survival analysis
+
+To add a clinical-outcome layer, survival analysis was performed in the METABRIC cohort using both true subtype labels and TCGA-model-predicted subtype labels.
+
+### Median survival by true subtype
+
+| True subtype | Median survival months |
+|---|---:|
+| LumA | 130.08 |
+| LumB | 104.10 |
+| Her2 | 97.07 |
+| Basal | 85.50 |
+
+### Median survival by predicted subtype
+
+| Predicted subtype | Median survival months |
+|---|---:|
+| LumA | 128.07 |
+| LumB | 108.52 |
+| Basal | 84.28 |
+| Her2 | 77.30 |
+
+Important log-rank results showed significant survival separation between LumA and LumB, and between Her2 and LumA, for both true and predicted subtype groupings.
+
+This suggests that the TCGA-trained model predictions preserve clinically meaningful survival differences in METABRIC.
+
+Detailed survival results are available in:
+
+    reports/metabric_survival_analysis_results.md
+
+
 ## Results file index
 
 Main generated figures and result tables are saved under `results/`. Large generated files are ignored by Git, but they can be recreated by running the pipeline.

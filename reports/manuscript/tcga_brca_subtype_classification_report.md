@@ -297,6 +297,41 @@ The strongest external validation performance was observed for LumA and Basal sa
 These results show that breast cancer molecular subtype signals are transferable across independent cohorts when platform-aware normalization is used.
 
 
+
+## METABRIC Survival Analysis
+
+To evaluate whether subtype predictions were clinically meaningful, survival analysis was performed in the METABRIC cohort using both true subtype labels and TCGA-model-predicted subtype labels.
+
+METABRIC overall survival information was obtained from the clinical patient file using:
+
+- Overall Survival (Months)
+- Overall Survival Status
+
+After merging survival data with the METABRIC prediction file, 1,608 samples were available for analysis.
+
+### Median survival by true subtype
+
+| True subtype | Median survival months |
+|---|---:|
+| LumA | 130.08 |
+| LumB | 104.10 |
+| Her2 | 97.07 |
+| Basal | 85.50 |
+
+### Median survival by predicted subtype
+
+| Predicted subtype | Median survival months |
+|---|---:|
+| LumA | 128.07 |
+| LumB | 108.52 |
+| Basal | 84.28 |
+| Her2 | 77.30 |
+
+Pairwise log-rank testing showed significant survival differences between several subtype groups. Important comparisons included true LumA versus LumB, true Her2 versus LumA, predicted LumA versus LumB, and predicted Her2 versus LumA.
+
+These results suggest that the TCGA-trained classifier does not only recover molecular subtype labels, but also preserves clinically meaningful survival differences in an independent cohort.
+
+
 ## 7. Future Work
 
 Future improvements include:

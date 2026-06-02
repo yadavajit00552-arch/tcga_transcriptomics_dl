@@ -257,3 +257,26 @@ The key lesson was that external validation is not only about applying a model t
 Best short answer:
 
 I trained a TCGA-BRCA RNA-seq subtype classifier and externally validated it on METABRIC. Raw microarray expression failed due to platform shift, but using METABRIC z-score expression improved external validation to 0.818 accuracy and 0.806 macro F1. This showed that breast cancer subtype signals are transferable across cohorts when normalization is handled carefully.
+
+
+
+## Survival Analysis Extension
+
+After external validation, I added survival analysis using METABRIC clinical outcome data.
+
+I merged TCGA-model-predicted METABRIC subtype labels with overall survival months and survival status from the METABRIC clinical file.
+
+The survival analysis showed that true subtype groups had expected survival differences. LumA had the longest median survival, while Basal had the shortest.
+
+Importantly, model-predicted subtype groups also showed survival separation:
+
+- Predicted LumA median survival: 128.07 months
+- Predicted LumB median survival: 108.52 months
+- Predicted Basal median survival: 84.28 months
+- Predicted Her2 median survival: 77.30 months
+
+This suggests that the model predictions were not only statistically accurate but also clinically meaningful.
+
+Best short answer:
+
+After external validation, I performed survival analysis in METABRIC. Both true and model-predicted subtype groups showed survival separation, supporting that the classifier captured clinically relevant subtype biology.

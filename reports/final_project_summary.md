@@ -115,6 +115,32 @@ Using METABRIC z-score expression improved external validation.
 | TCGA test using shared genes | 0.8970 | 0.9060 | 0.8934 | 0.8970 |
 | METABRIC z-score external validation | 0.8178 | 0.7840 | 0.8057 | 0.8161 |
 
+
+## METABRIC Survival Analysis
+
+To add clinical relevance, survival analysis was performed in METABRIC using both true subtype labels and TCGA-model-predicted subtype labels.
+
+### Median survival by true subtype
+
+| True subtype | Median survival months |
+|---|---:|
+| LumA | 130.08 |
+| LumB | 104.10 |
+| Her2 | 97.07 |
+| Basal | 85.50 |
+
+### Median survival by predicted subtype
+
+| Predicted subtype | Median survival months |
+|---|---:|
+| LumA | 128.07 |
+| LumB | 108.52 |
+| Basal | 84.28 |
+| Her2 | 77.30 |
+
+Important log-rank comparisons showed significant survival separation, especially LumA vs LumB and Her2 vs LumA. This suggests that model-predicted subtypes preserve clinically meaningful survival information in METABRIC.
+
+
 ## Key Scientific Conclusion
 
 Breast cancer molecular subtype identity is strongly encoded in transcriptomic data. A TCGA-trained classifier can transfer to an independent cohort when platform-aware normalization is used.
